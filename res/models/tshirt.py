@@ -1,5 +1,7 @@
 """This module contains the pydantic models for the tshirt resource"""
-from pydantic import BaseModel
+import re
+import json
+from pydantic import BaseModel, field_validator
 
 
 class TshirtFromAi(BaseModel):
@@ -14,6 +16,19 @@ class TshirtFromAi(BaseModel):
 class TshirtFromAiList(BaseModel):
     """A pydantic model for a list of ai generated fields"""
     patterns: list[TshirtFromAi]
+
+    @classmethod
+    def model_validate_json(cls, json_str: str):
+        """Custom validation for JSON string from Ollama"""
+        # Find the JSON object in the response
+        json_match = re.search(r'\{.*\}', json_str, re.DOTALL)
+        if json_match:
+            try:
+                json_data = json.loads(json_match.group())
+                return cls.model_validate(json_data)
+            except json.JSONDecodeError as e:
+                raise ValueError(f"Invalid JSON format: {e}")
+        raise ValueError("No valid JSON object found in the response")
 
 
 class TshirtWithIds(TshirtFromAi):

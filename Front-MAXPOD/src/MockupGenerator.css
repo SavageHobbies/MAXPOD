@@ -1,0 +1,126 @@
+.mockup-generator {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.mockup-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.selected-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.thumbnail-grid, .mockup-grid, .design-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 10px;
+}
+
+.thumbnail-grid img, .mockup-item, .design-item {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.mockup-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.mockup-item {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.mockup-image-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%; /* Creates a square aspect ratio */
+}
+
+.mockup-template,
+.mockup-design {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.mockup-design {
+  opacity: 0.8; /* Adjust this value to change the visibility of the design overlay */
+}
+
+.mockup-item p {
+  margin: 5px 0;
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+.template-image, .design-overlay {
+  width: 100%;
+  height: auto;
+}
+
+.design-overlay {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  opacity: 0.7;
+}
+
+.generate-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+.generate-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.design-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.design-item {
+  border: 1px solid #ddd;
+  padding: 5px;
+  text-align: center;
+}
+
+.design-item img {
+  width: 100%;
+  height: 100px;
+  object-fit: contain;
+}
+
+.design-item p {
+  margin: 5px 0;
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

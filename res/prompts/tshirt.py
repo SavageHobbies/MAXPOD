@@ -6,7 +6,40 @@ General Product Description:
 Unisex Gildan T-Shirt - Made with medium fabric (5.3 oz/yd² (180 g/m²)) consisting of 100% cotton for year-round comfort that is sustainable and highly durable. The classic fit of this shirt ensures a comfy, relaxed wear while the crew neckline adds that neat, timeless look that can blend into any occasion, casual or semi-formal.
 """
 
+# Example response format
+example_format = """
+{
+  "patterns": [
+    {
+      "product_name": "Funny Teacher Math Equation",
+      "description": "Add some humor to your classroom wardrobe with this witty teacher-themed t-shirt. Made from soft, durable cotton, it's perfect for those long days of shaping young minds.",
+      "tshirt_text": "1 Teacher + 25 Students = Endless Possibilities",
+      "marketing_tags": ["teacher humor", "education", "classroom style", "math teacher", "school life"]
+    }
+  ]
+}
+"""
+
 # AI prompt
-user_message = """
-I have a t-shirt business and I need your help to come up with creative, fun, unique, and interesting t-shirt designs. I would like you to generate %s patterns relating tho this idea: %s. The product_name is the name of the product and it will be displayed as the product name. The description is a short description of the product, and the description of the item it will be printed on can be found below. You can use parts of this in the description, but keep it witty yet classy. The tshirt_text is the text that will be printed on the t-shirt. Do not put the tshirt_text in quotes, please. This field is your time to shine, I believe in your ability to help me create amazing products! The marketing_tags are the tags that will be used to market the t-shirt, these should be relevant to the idea and usable for marketing purposes. Please make sure that the patterns are unique and creative. Thank you!
+user_message = f"""Generate unique t-shirt designs for this idea: %s. I need %s designs.
+
+Response must be in this exact JSON format:
+{example_format}
+
+Each design should have:
+1. product_name: Catchy, SEO-friendly product title
+2. description: Engaging product description that mentions both the design and the shirt quality
+3. tshirt_text: The actual text to be printed on the shirt (be creative and unique!)
+4. marketing_tags: 5-7 relevant tags for marketing
+
+The t-shirts are:
+{blueprint_6_description}
+
+Make the designs witty, creative, and appealing to your target audience. Focus on:
+- Clear, memorable text
+- Professional yet engaging tone
+- Unique ideas that stand out
+- Marketable concepts
+
+Remember to format the response as valid JSON!
 """
